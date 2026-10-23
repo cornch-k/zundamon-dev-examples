@@ -27,6 +27,7 @@ Python 기초 문법(리스트·딕셔너리·for·함수)을 아는 사람을 �
 | 편 | 주제 | 폴더 |
 |---|---|---|
 | 1 | AI 답을 JSON으로 고정하기 (구조화 출력) | [coding/01-json-structured-output](coding/01-json-structured-output) |
+| 3 | 내 문서로 답하게 하기: 모른다던 AI가 문서를 붙이니 3개를 맞힌 거다 | [coding/03-rag-chunking-search](coding/03-rag-chunking-search) |
 | 2 | AI에게 함수를 쥐여 주기: 빈 답이던 게 루프 3번에 바뀐 장소까지 찾는 거다 | [coding/02-tool-use-agent-loop](coding/02-tool-use-agent-loop) |
 
 ## 참고
