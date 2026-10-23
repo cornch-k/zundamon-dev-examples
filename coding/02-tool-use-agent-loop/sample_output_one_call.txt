@@ -1,0 +1,4 @@
+stop_reason: tool_use
+content 블록:
+  [tool_use] search_files {"keyword": "발표"}
+꺼낸 답 텍스트: ''
