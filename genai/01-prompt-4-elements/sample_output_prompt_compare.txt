@@ -1,0 +1,176 @@
+===== 막연한 요청 (2674자) =====
+# 리스트 컴프리헨션 (List Comprehension)
+
+리스트 컴프리헨션은 **기존 반복 가능한 객체(iterable)로부터 새로운 리스트를 간결하게 만드는 파이썬 문법**입니다. `for` 문과 `append()`를 여러 줄로 쓰는 대신 한 줄로 표현할 수 있습니다.
+
+---
+
+## 1. 기본 구조
+
+```python
+[표현식 for 항목 in 반복가능객체]
+```
+
+### 예시: 1~5의 제곱 리스트 만들기
+
+**일반적인 for문**
+```python
+squares = []
+for x in range(1, 6):
+    squares.append(x ** 2)
+print(squares)  # [1, 4, 9, 16, 25]
+```
+
+**리스트 컴프리헨션**
+```python
+squares = [x ** 2 for x in range(1, 6)]
+print(squares)  # [1, 4, 9, 16, 25]
+```
+
+---
+
+## 2. 조건 필터링 (`if`)
+
+```python
+[표현식 for 항목 in 반복가능객체 if 조건]
+```
+
+조건이 참인 항목만 포함합니다.
+
+```python
+# 짝수만 추출
+evens = [x for x in range(10) if x % 2 == 0]
+print(evens)  # [0, 2, 4, 6, 8]
+```
+
+---
+
+## 3. 조건에 따라 값 바꾸기 (`if-else`)
+
+```python
+[참일때값 if 조건 else 거짓일때값 for 항목 in 반복가능객체]
+```
+
+⚠️ `if-else`는 **`for` 앞**에 위치합니다!
+
+```python
+labels = ["짝수" if x % 2 == 0 else "홀수" for x in range(5)]
+print(labels)  # ['짝수', '홀수', '짝수', '홀수', '짝수']
+```
+
+| 형태 | 위치 | 역할 |
+|------|------|------|
+| `if` 단독 | `for` 뒤 | 필터링 (항목 제외) |
+| `if-else` | `for` 앞 | 값 변환 (모든 항목 유지) |
+
+---
+
+## 4. 중첩 반복문
+
+```python
+# 구구단 2~3단 결과
+result = [i * j for i in range(2, 4) for j in range(1, 4)]
+print(result)  # [2, 4, 6, 3, 6, 9]
+```
+
+위 코드는 다음과 같습니다:
+```python
+result = []
+for i in range(2, 4):
+    for j in range(1, 4):
+        result.append(i * j)
+```
+
+### 2차원 리스트 평탄화(flatten)
+```python
+matrix = [[1, 2], [3, 4], [5, 6]]
+flat = [num for row in matrix for num in row]
+print(flat)  # [1, 2, 3, 4, 5, 6]
+```
+
+---
+
+## 5. 실전 예시
+
+```python
+# 문자열 리스트를 대문자로
+names = ["alice", "bob", "charlie"]
+upper_names = [name.upper() for name in names]
+# ['ALICE', 'BOB', 'CHARLIE']
+
+# 문자열에서 숫자만 추출
+text = "a1b2c3"
+digits = [int(ch) for ch in text if ch.isdigit()]
+# [1, 2, 3]
+
+# 길이가 4 이상인 단어만
+words = ["hi", "hello", "python", "is", "fun"]
+long_words = [w for w in words if len(w) >= 4]
+# ['hello', 'python']
+```
+
+---
+
+## 6. 다른 컴프리헨션들
+
+같은 문법을 딕셔너리, 셋에도 쓸 수 있습니다.
+
+```python
+# 딕셔너리 컴프리헨션
+square_dict = {x: x ** 2 for x in range(4)}
+# {0: 0, 1: 1, 2: 4, 3: 9}
+
+# 셋 컴프리헨션
+unique_lengths = {len(w) for w in ["hi", "yo", "hello"]}
+# {2, 5}
+
+# 제너레이터 표현식 (소괄호) - 메모리 효율적
+total = sum(x ** 2 for x in range(1000000))
+```
+
+---
+
+## 7. 장점과 주의점
+
+**✅ 장점**
+- 코드가 짧고 읽기 쉬움
+- 일반 for문 + append보다 대체로 빠름
+
+**⚠️ 주의점**
+- 너무 복잡하게 중첩하면 오히려 가독성이 떨어짐
+- 단순히 함수 실행(부수 효과)만 목적이라면 일반 for문이 적합
+
+```python
+# ❌ 나쁜 예: 읽기 어려움
+result = [x * y for x in range(10) if x % 2 for y in range(x) if y > 2 if x + y < 10]
+
+# ❌ 나쁜 예: 리스트가 필요 없는데 사용
+[print(x) for x in range(5)]
+
+# ✅ 이럴 땐 그냥 for문
+for x in range(5):
+    print(x)
+```
+
+---
+
+**요약:** 리스트 컴프리헨션은 `[무엇을 for 어디서 if 조건]` 형태로, "어떤 데이터에서 무엇을 뽑아 리스트로 만들지"를 한 줄로 표현하는 문법입니다. 간단한 변환·필터링에 적극 활용하되, 복잡해지면 일반 for문을 쓰는 것이 좋습니다.
+
+궁금한 부분이 있으면 더 질문해 주세요! 😊
+
+===== 구체적인 요청 (226자) =====
+**정의**: for문으로 리스트를 만드는 과정을 한 줄로 줄인 문법입니다.
+
+**예제**
+```python
+# for문
+squares = []
+for x in range(5):
+    squares.append(x * x)
+
+# 컴프리헨션
+squares = [x * x for x in range(5)]
+```
+
+**주의**: 조건이 많아져 복잡해지면 오히려 읽기 어려우니, 그럴 땐 for문을 쓰세요.
+
