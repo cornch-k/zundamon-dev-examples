@@ -20,6 +20,14 @@ API 키는 [Anthropic Console](https://console.anthropic.com/)에서 발급받�
 |---|---|---|
 | 1 | 같은 질문, 다른 답: 좋은 프롬프트의 4요소 | [genai/01-prompt-4-elements](genai/01-prompt-4-elements) |
 
+## [코딩] AI로 프로그램 만들기
+
+Python 기초 문법(리스트·딕셔너리·for·함수)을 아는 사람을 위한 시리즈입니다.
+
+| 편 | 주제 | 폴더 |
+|---|---|---|
+| 1 | AI 답을 JSON으로 고정하기 (구조화 출력) | [coding/01-json-structured-output](coding/01-json-structured-output) |
+
 ## 참고
 
 - AI의 답은 실행할 때마다 달라집니다. 각 폴더의 `sample_output_*.txt`는 영상을 만들 때 실제로 나온 결과이고, 직접 실행하면 내용과 글자 수가 조금씩 다를 수 있습니다.
