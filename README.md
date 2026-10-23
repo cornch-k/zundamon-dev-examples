@@ -23,4 +23,5 @@ API 키는 [Anthropic Console](https://console.anthropic.com/)에서 발급받�
 ## 참고
 
 - AI의 답은 실행할 때마다 달라집니다. 각 폴더의 `sample_output_*.txt`는 영상을 만들 때 실제로 나온 결과이고, 직접 실행하면 내용과 글자 수가 조금씩 다를 수 있습니다.
-- 음성: VOICEGER:Zundamon
+- 음성: Voiceger:Zundamon
+- 立ち絵: 坂本アヒル
